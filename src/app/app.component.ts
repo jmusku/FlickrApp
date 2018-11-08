@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
   providers: [FlickrService]
 })
 export class AppComponent implements OnInit {
+  title = 'Flickr Application';
   displaycount: Number = 2;
   isSearched: Boolean = false;
   searchTxt: String = '';
