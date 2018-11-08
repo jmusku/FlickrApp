@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   isSearched: Boolean = false;
   searchTxt: String = '';
   photos = [];
+  page: any;
 
   constructor(private _flickrService: FlickrService) {
   }
