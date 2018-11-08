@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+.radiolbltxt > input[type=radio] {
+    width: 15px;
+    height: 15px;
+}
+.radiolbltxt > label {
+    vertical-align: middle;
+    padding-right: 10px;
+}
+.search > input {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: #1185EE;
+}
+.search { position: relative; padding: 10px 0px 10px 0px; }
+.search .fa { 
+  position: absolute;
+  top: 12px;
+  left: 98%;
+  font-size: 15px;
+}
+.search .fa-times { 
+    color: red;
+  }
+
+.topbuffer50 {
+    margin-top: 50px;
+}
+
+.flckrPic {
+    padding: 20px;
+}
+
+.flckrPic > div {
+    background-color: #F4F3F4; 
+    display:inline-block
+}
+
+.flckrPic > p {
+    word-wrap:break-word; 
+    margin: 0px; 
+    padding: 0px;
+}
