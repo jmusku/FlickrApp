@@ -41,3 +41,7 @@
     margin: 0px; 
     padding: 0px;
 }
+
+.card-body {
+    padding: 0.8rem !important;
+}

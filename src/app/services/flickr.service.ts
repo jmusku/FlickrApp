@@ -21,7 +21,7 @@ export class FlickrService {
                     return val.photos.photo.map((photo: any) => {
                         return {
                             url: `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_m.jpg`,
-                            author: photo.owner
+                            title: photo.title
                         };
                     });
                 } else {

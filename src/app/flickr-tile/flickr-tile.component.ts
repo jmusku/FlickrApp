@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './flickr-tile.component.html'
 })
 export class FlickrTileComponent implements OnInit {
-  @Input() flckrPhoto: {url: string, author: string};
+  @Input() flckrPhoto: {url: string, title: string};
 
   constructor() { }
 
