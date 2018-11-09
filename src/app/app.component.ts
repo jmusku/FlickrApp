@@ -29,9 +29,11 @@ export class AppComponent implements OnInit {
   }
 
   searchFlickr() {
+    this.photos = [];
+    setTimeout(() => {
     this.getSearchResult().subscribe(data => {
       this.photos = data;
-    });
+    }); }, 500);
   }
 
   clearSearch() {
