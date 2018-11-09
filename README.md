@@ -11,3 +11,9 @@ Prerequisites to install
 7. In Terminal window - type "npm install"
 8. In Terminal window - type "ng serve --open"
 9. To Stop - Press Cntrl + c and choose Yes(Y) to terminate batch job.
+10. Tests can be run using "ng test" command
+
+API Can be changed as fallows
+1. Open src folder, and then environments.
+2. change FLCKR_API_KEY in environment.ts for dev enivironment
+3. Change FLCKR_API_KEY in environment.prod.ts for prod enivironment

@@ -2,11 +2,12 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class FlickrService {
     result$: Observable<any>;
-    key = '5c07a30cce6635050a5cda72ae6276ac';
+    key = environment.FLCKR_API_KEY;
     constructor(private _http: Http) { }
 
     getResult(query: string) {
