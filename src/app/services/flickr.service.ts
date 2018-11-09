@@ -8,11 +8,13 @@ import { environment } from 'src/environments/environment';
 export class FlickrService {
     result$: Observable<any>;
     key = environment.FLCKR_API_KEY;
+    limit = environment.REC_LIMIT;
+    arg = environment.SEARCH_ARG;
     constructor(private _http: Http) { }
 
     getResult(query: string) {
         // tslint:disable-next-line:max-line-length
-        const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${this.key}&tags=${query}&per_page=12&format=json&nojsoncallback=1`;
+        const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${this.key}&${this.arg}=${query}&per_page=${this.limit}&format=json&nojsoncallback=1`;
         return this._http
             .get(url)
             .pipe(map(res => res.json()))

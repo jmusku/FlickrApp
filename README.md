@@ -13,7 +13,8 @@ Prerequisites to install
 9. To Stop - Press Cntrl + c and choose Yes(Y) to terminate batch job.
 10. Tests can be run using "ng test" command
 
-API Can be changed as fallows
+Configuration can be changed as follows
 1. Open src folder, and then environments.
-2. change FLCKR_API_KEY in environment.ts for dev enivironment
-3. Change FLCKR_API_KEY in environment.prod.ts for prod enivironment
+2. To change API Key, FLCKR_API_KEY in environment.ts for dev enivironment and environment.prod.ts for prod enivironment
+3. To change max record limit, REC_LIMIT in environment.ts for dev enivironment and environment.prod.ts for prod enivironment
+4. To change argument type, SEARCH_ARG in environment.ts for dev enivironment and environment.prod.ts for prod enivironment
