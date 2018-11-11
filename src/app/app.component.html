@@ -1,46 +1,7 @@
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
-  </h1>  
+  </h1>
 </div>
-<div class="container topbuffer50">
-  <div class="col-xs-12">
-    <h5>Maxamation Interview Code Challenge 2018</h5>
-  </div>
-</div>
-<form name="searchform">
-  <div class="container">
-    <div class="col-xs-12">
-      <div class="search">
-        <span [hidden]="isSearched" class="fa fa-search"></span>
-        <span [hidden]="!isSearched" class="fa fa-times" (click)="clearSearch();"></span>
-        <input name="search" class="w-100" type="text" placeholder="search by city, e.g. sydney and results shown per page can be changed"
-          [(ngModel)]=searchTxt (keyup)="searchFlickr()" />
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="col-xs-4 float-right">
-      <div class="form-group radiolbltxt">
-        <input type="radio" name="radDisplaycount" id="two" [(ngModel)]=displaycount [value]='2'>
-        <label>2</label>
-        <input type="radio" name="radDisplaycount" id="ten" [(ngModel)]=displaycount [value]='10'>
-        <label>10</label>
-        <input type="radio" name="radDisplaycount" id="thirty" [(ngModel)]=displaycount [value]='30'>
-        <label>30</label>
-      </div>
-    </div>
-  </div>
-</form>
-<div class="container col-xs-12 topbuffer50">
-  <app-flickr-tile *ngFor="let ph of photos | paginate: { itemsPerPage:displaycount, currentPage: page }; let i=index"
-    [flckrPhoto]="ph" class="flckrPic">
-  </app-flickr-tile>
-</div>
-<div class="topbuffer50 container">
-  <div class="topbuffer50 col-xs-12">
-    <div class="offset-md-5">
-      <pagination-controls (pageChange)="page=$event"></pagination-controls>
-    </div>
-  </div>
-</div>
+<app-flickr-search></app-flickr-search>
+<app-flickr-search-result></app-flickr-search-result>

@@ -1,0 +1,12 @@
+<div class="container col-xs-12 topbuffer50">
+  <app-flickr-tile *ngFor="let ph of searchedPhotos | paginate: { itemsPerPage:displayCount, currentPage: page }; let i=index"
+    [flckrPhoto]="ph" class="flckrPic">
+  </app-flickr-tile>
+</div>
+<div class="topbuffer50 container">
+  <div class="topbuffer50 col-xs-12">
+    <div class="offset-md-5">
+      <pagination-controls (pageChange)="page=$event"></pagination-controls>
+    </div>
+  </div>
+</div>
