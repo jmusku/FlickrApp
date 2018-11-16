@@ -15,13 +15,13 @@
 </div>
 <div class="container">
   <div class="col-xs-4 float-right">
-    <div class="form-group radiolbltxt">
-      <input type="radio" name="radDisplaycount" id="two" [checked]=true value=2 (click)="changeDisplayCount(2)">
-      <label>2</label>
-      <input type="radio" name="radDisplaycount" id="ten" value=3 (click)="changeDisplayCount(10)">
-      <label>10</label>
-      <input type="radio" name="radDisplaycount" id="thirty" value=4 (click)="changeDisplayCount(30)">
-      <label>30</label>
-    </div>
+    <fieldset>
+      <div class="radioDisplayCount">
+        <span *ngFor="let count of displayCount; let i=index">
+          <input type="radio" class="radio" name="radDisplaycount" id=rad{{i}} [ngModel]=5 [value]="count" (click)="changeDisplayCount(count)">
+          <label for=rad{{i}}>{{count}}</label>
+        </span>
+      </div>
+    </fieldset>
   </div>
 </div>

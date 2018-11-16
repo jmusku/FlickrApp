@@ -1,6 +1,6 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Photo } from '../models/photo.model';
@@ -11,8 +11,8 @@ export class FlickrService {
     key = environment.FLCKR_API_KEY;
     limit = environment.REC_LIMIT;
     arg = environment.SEARCH_ARG;
-    displayCountUpdated = new EventEmitter<number>();
-    searchResultUpdate = new EventEmitter<Photo[]>();
+    displayCountUpdated = new Subject<number>();
+    searchResultUpdate = new Subject<Photo[]>();
 
     constructor(private _http: Http) { }
 

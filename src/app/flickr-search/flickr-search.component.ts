@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FlickrService } from '../services/flickr.service';
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-flickr-search',
@@ -7,30 +9,33 @@ import { FlickrService } from '../services/flickr.service';
 })
 export class FlickrSearchComponent implements OnInit {
 
-  isSearched: Boolean = false;
+  displayCount = [5, 10, 30];
+  searchTxtChanged: Subject<string> = new Subject<string>();
 
   constructor(private _flickrService: FlickrService) { }
 
   ngOnInit() {
+    this.searchTxtChanged
+      .pipe(debounceTime(500))
+      .pipe(distinctUntilChanged())
+      .subscribe(search => this.getSearchResult(search));
   }
 
   getSearchResult(query: string) {
-    return this._flickrService.getResult(query.toString());
+    this._flickrService.getResult(query.toString()).subscribe(data => {
+      this._flickrService.searchResultUpdate.next(data);
+    });
   }
 
   searchFlickr(srchTxt: string) {
-    setTimeout(() => {
-      this.getSearchResult(srchTxt).subscribe(data => {
-        this._flickrService.searchResultUpdate.emit(data);
-      });
-    }, 500);
+    this.searchTxtChanged.next(srchTxt);
   }
 
   clearSearch() {
-    this._flickrService.searchResultUpdate.emit([]);
+    this._flickrService.searchResultUpdate.next([]);
   }
 
   changeDisplayCount(cnt: number) {
-    this._flickrService.displayCountUpdated.emit(cnt);
+    this._flickrService.displayCountUpdated.next(cnt);
   }
 }
